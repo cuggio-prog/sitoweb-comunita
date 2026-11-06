@@ -1,0 +1,169 @@
+================================================================================
+CONTESTO — Lavori svolti in questa sessione
+================================================================================
+Data        : 2026-11-06
+Progetto    : Sito web per una comunità/associazione per la disabilità
+              psichiatrica in Veneto
+Cartella    : sitoweb-comunita/
+Lingua      : Italiano
+Stack       : HTML + CSS + JavaScript (nessuna dipendenza / nessun framework)
+
+
+--------------------------------------------------------------------------------
+1. RICHIESTA INIZIALE
+--------------------------------------------------------------------------------
+Il cliente ha chiesto la realizzazione di un sito web in più pagine per una
+comunità/associazione che si occupa di disabilità psichiatriche e si trova in
+Veneto. Richiesta libera: nomi, contatti e dettagli non forniti, quindi sono
+stati usati contenuti di modello (placeholder) realistici e facilmente
+sostituibili.
+
+
+--------------------------------------------------------------------------------
+2. LAVORO SVOLTO
+--------------------------------------------------------------------------------
+È stato creato un sito web statico multipagina, in italiano, senza dipendenze
+esterne: si apre direttamente nel browser e si può pubblicare su qualsiasi
+hosting statico (Netlify, GitHub Pages, cPanel, ecc.).
+
+Design: tema caldo, accogliente e calmo (verde salvia + accento ambra, sfondi
+chiari), pensato per trasmettere accoglienza e non freddezza clinica. Forte
+attenzione all'accessibilità (rilevante per il pubblico di riferimento).
+
+
+--------------------------------------------------------------------------------
+3. STRUTTURA DEL SITO (contenuto della cartella sitoweb-comunita/)
+--------------------------------------------------------------------------------
+sitoweb-comunita/
+├── index.html       -> Home
+├── chi-siamo.html   -> Chi siamo
+├── servizi.html     -> Servizi
+├── attivita.html    -> Attività
+├── contatti.html    -> Contatti
+├── css/
+│   └── style.css    -> Tutti gli stili condivisi (token di design in :root)
+├── js/
+│   └── main.js      -> Menu mobile, intestazione, form, anno nel footer
+├── README.md        -> Istruzioni di personalizzazione
+└── contesto.txt     -> Questo file (riepilogo della sessione)
+
+
+--------------------------------------------------------------------------------
+4. DETTAGLIO PAGINE
+--------------------------------------------------------------------------------
+index.html (Home)
+  - Hero con messaggio di benvenuto e doppia call-to-action.
+  - Barra di statistiche (numeri di esempio: anni, abitazioni, centri, persone).
+  - Sezione "Cosa facciamo" con 3 card (abitazioni, centri diurni,
+    accompagnamento).
+  - Sezione missione con una testimonianza (blockquote).
+  - Sezione attività in evidenza (4 card).
+  - Fascia CTA finale ("Facciamo un passo insieme").
+
+chi-siamo.html (Chi siamo)
+  - Missione.
+  - Storia con timeline (tappe: 1994, 2005, 2014, oggi).
+  - I nostri valori (4 valori).
+  - Il team (4 profili di esempio con iniziali).
+
+servizi.html (Servizi)
+  - 5 ambiti di servizio in dettaglio, numerati, con ancore:
+      #abitazioni       Abitazioni di comunità
+      #centri-diurni    Centri diurni
+      #accompagnamento  Accompagnamento e autonomia
+      #laboratori       Laboratori e attività
+      #famiglie         Supporto alle famiglie e ai caregiver
+  - Sezione "Per chi" (a chi sono rivolti i servizi).
+  - Sezione "Come funziona" (accesso in 3 passi: incontro, progetto, avvio).
+  - Fascia CTA ("Prenota un colloquio").
+
+attivita.html (Attività)
+  - 6 card dei laboratori (cucina/orto, teatro/lettura, bottega di riuso,
+    movimento, autonomia a casa, uscite/territorio).
+  - Tabella "una settimana tipo" (calendario settimanale).
+  - Domande frequenti (FAQ) con dettagli/summary.
+  - CTA finale ("Passa a trovarci").
+
+contatti.html (Contatti)
+  - Sedi, telefono, email, colloqui (card di contatto).
+  - Riquadro MAPPA (segnaposto da sostituire con embed Google Maps).
+  - Modulo di contatto (nome, telefono, email, motivo, messaggio, privacy)
+    con invio simulato.
+  - Orari di apertura (centro diurno/sede + nota urgenze 112).
+
+Elementi comuni a tutte le pagine:
+  - Intestazione (header) con logo e navigazione sticky.
+  - Menu mobile a "hamburger" sotto gli 860px.
+  - Piè di pagina (footer) con navigazioni, servizi, contatti e anno corrente.
+
+
+--------------------------------------------------------------------------------
+5. SCELTE TECNICHE
+--------------------------------------------------------------------------------
+- Nessun framework né build: solo HTML, CSS, JS vanilla.
+- CSS: variabili personalizzate (token di design) raggruppate in :root in
+  cima a css/style.css (colori, font, raggi, ombre). Per rifare il tema si
+  cambiano solo quei valori.
+- Tipografia: Google Fonts "Fraunces" (titoli, serif calda) + "Inter"
+  (testo, sans), con fallback di sistema.
+- Icone e logo: SVG inline (nessun file immagine esterno). Il sito funziona
+  anche offline e non ha link rotti.
+- Accessibilità:
+    * skip-link ("Salta al contenuto principale");
+    * landmark semantici (header/nav/main/section/footer) e gerarchia
+      intestazioni corretta;
+    * focus visibile (outline) per la navigazione da tastiera;
+    * menu mobile gestito da tastiera (Esc per chiudere, aria-expanded);
+    * supporto a prefers-reduced-motion;
+    * contrasto dei colori curato.
+- Responsive: layout fluido (clamp()), griglie che collassano su mobile,
+  menu hamburger sotto i 860px, adattamenti sotto i 600px.
+- Form: al momento simula l'invio (mostra un messaggio di conferma); da
+  collegare a un vero endpoint/servizio per l'invio reale.
+
+
+--------------------------------------------------------------------------------
+6. CONTENUTI DA SOSTITUIRE (tutto è placeholder/modello)
+--------------------------------------------------------------------------------
+- NOME  : "Comunità L'Incontro" -> sostituire con il nome reale (compare in
+          logo, <title>, meta description e footer di ogni pagina).
+- LOGO  : icona SVG inline da sostituire con il logo reale.
+- CONTATTI : indirizzo "Via della Solidarietà 12, Padova", telefono
+          "+39 049 123 4567", email "info@comunitlaincontro.it", P.IVA
+          "00000000000" -> tutti da aggiornare con i dati reali.
+- NUMERI / STATISTICHE: valori di esempio in index.html.
+- STORIA / TEAM / SERVIZI: testi di modello da adattare ai fatti reali.
+- MAPPA : riquadro segnaposto in contatti.html -> embed Google Maps.
+- FORM  : collegare a un backend o servizio (Formspree / EmailJS / endpoint).
+
+
+--------------------------------------------------------------------------------
+7. WORKFLOW GIT / GITHUB — STATO
+--------------------------------------------------------------------------------
+- Creato repository locale nella cartella sitoweb-comunita/ (ramo "main").
+- Tutti i file aggiunti allo staging.
+- Commit locale: effettuato in questa sessione (autore provvisorio da
+  correggere con l'identità GitHub reale).
+- Push su GitHub: IN ATTESA.
+
+Da fare per pubblicare su GitHub:
+  1) Autenticazione (da eseguire dall'utente):  ! gh auth login
+  2) Creare il repository GitHub "sitoweb-comunita"
+     (account personale; visibilità da decidere: privata o pubblica).
+  3) Correggere l'autore del commit con l'identità GitHub reale e fare push.
+
+
+--------------------------------------------------------------------------------
+8. PROSSIMI PASSI / TODO
+--------------------------------------------------------------------------------
+[ ] Utente esegue:  ! gh auth login   (autenticazione GitHub)
+[ ] Confermare la visibilità del repo (pubblica / privata)
+[ ] Creare il repo su GitHub e fare il push
+[ ] Personalizzare i contenuti: nome, contatti, testi, numeri, mappa, form
+[ ] (Opzionale) Pubblicare online: Netlify / GitHub Pages / cPanel
+[ ] (Opzionale) Aggiungere eventuali pagine extra (es. "Rete e territorio",
+    "News", "Lavora con noi")
+
+================================================================================
+FINE
+================================================================================

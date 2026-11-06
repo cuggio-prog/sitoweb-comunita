@@ -1,0 +1,60 @@
+massimo@T480s:~/progetto03$ cd /home/massimo/progetto03/sitoweb-comunita
+massimo@T480s:~/progetto03/sitoweb-comunita$ gh auth status
+You are not logged into any GitHub hosts. Run gh auth login to authenticate.
+massimo@T480s:~/progetto03/sitoweb-comunita$ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? SSH
+? Upload your SSH public key to your GitHub account? /home/massimo/.ssh/id_ed25519.pub
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: E1A3-BB52
+- Press Enter to open github.com in your browser... 
+
+
+✓ Authentication complete. Press Enter to continue...
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+
+HTTP 422: Validation Failed (https://api.github.com/user/keys)
+key is already in use
+massimo@T480s:~/progetto03/sitoweb-comunita$ 
+massimo@T480s:~/progetto03/sitoweb-comunita$ 
+massimo@T480s:~/progetto03/sitoweb-comunita$ gh auth login
+? What account do you want to log into?  [Use arrows to move, type to filter]
+> GitHub.com
+  GitHub Enterprise Server
+
+massimo@T480s:~/progetto03/sitoweb-comunita$ gh auth status
+github.com
+  ✓ Logged in to github.com as cuggio-prog (/home/massimo/.config/gh/hosts.yml)
+  ✓ Git operations for github.com configured to use ssh protocol.
+  ✓ Token: *******************
+  
+massimo@T480s:~/progetto03/sitoweb-comunita$ LOGIN=$(gh api user --jq '.login')
+GHID=$(gh api user --jq '.id')
+git config user.name "$LOGIN"
+git config user.email "$GHID+$LOGIN@users.noreply.github.com"
+git commit --amend --reset-author --no-edit
+[main 914b881] Aggiunta sito web multipagina per Comunità L'Incontro
+ 9 files changed, 2529 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 attivita.html
+ create mode 100644 chi-siamo.html
+ create mode 100644 contatti.html
+ create mode 100644 contesto.txt
+ create mode 100644 css/style.css
+ create mode 100644 index.html
+ create mode 100644 js/main.js
+ create mode 100644 servizi.html
+massimo@T480s:~/progetto03/sitoweb-comunita$ gh repo create sitoweb-comunita --private --source . --remote origin --push
+✓ Created repository cuggio-prog/sitoweb-comunita on GitHub
+✓ Added remote git@github.com:cuggio-prog/sitoweb-comunita.git
+✓ Pushed commits to git@github.com:cuggio-prog/sitoweb-comunita.git
+massimo@T480s:~/progetto03/sitoweb-comunita$ git remote -v
+origin	git@github.com:cuggio-prog/sitoweb-comunita.git (fetch)
+origin	git@github.com:cuggio-prog/sitoweb-comunita.git (push)
+massimo@T480s:~/progetto03/sitoweb-comunita$ git log --oneline -1
+914b881 (HEAD -> main, origin/main) Aggiunta sito web multipagina per Comunità L'Incontro
+massimo@T480s:~/progetto03/sitoweb-comunita$ ssh -T git@github.com
+Hi cuggio-prog! You've successfully authenticated, but GitHub does not provide shell access.
+
